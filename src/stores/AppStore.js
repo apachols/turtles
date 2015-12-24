@@ -14,11 +14,19 @@ class AppStore extends Store {
     items.push(itemText);
   }
 
+  removeItem(itemIndex) {
+    items.splice(itemIndex, 1);
+  }
+
   __onDispatch(action) {
     switch (action.type) {
 
     case 'additem':
       this.addItem(action.text);
+      break;
+
+    case 'removeitem':
+      this.removeItem(action.idx);
       break;
 
     default:

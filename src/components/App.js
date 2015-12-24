@@ -39,7 +39,7 @@ class App extends Component {
         {
           // In lieu of a collection component for the time being
           this.state.items.map((item, i) => (
-            <ItemRow item={item} key={i}/>
+            <ItemRow item={item} idx={i} key={i}/>
           ))
         }
         </ListGroup>
