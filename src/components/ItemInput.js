@@ -2,21 +2,16 @@
 
 import React, { Component } from 'react';
 
-import Dispatcher from '../dispatcher/Dispatcher';
-
 import { Input, Button } from 'react-bootstrap';
 
-
-class ItemInput extends Component {
-
-  constructor(props) {
-    super(props);
-  }
+export default class ItemInput extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    Dispatcher.dispatch({ type: 'additem', text: this.refs.input.getInputDOMNode().value });
-    this.refs.input.getInputDOMNode().value = '';
+    const node = this.refs.input.getInputDOMNode();
+    const text = node.value.trim();
+    this.props.onClick(text);
+    node.value = '';
   }
 
   render() {
@@ -28,5 +23,3 @@ class ItemInput extends Component {
     );
   }
 }
-
-export default ItemInput;

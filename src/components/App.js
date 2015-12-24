@@ -1,51 +1,44 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 // my components
+// import ItemRow from './ItemRow';
 import ItemInput from './ItemInput';
-import ItemRow from './ItemRow';
-// stores
-import AppStore from '../stores/AppStore';
+
 // bootstrap components
-import { ListGroup } from 'react-bootstrap';
+// import { ListGroup } from 'react-bootstrap';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: []
-    };
-
-    this.onAppStoreUpdate = this.onAppStoreUpdate.bind(this);
-  }
-
-  componentDidMount() {
-    AppStore.addListener(this.onAppStoreUpdate);
-  }
-
-  componentWillUnmount() {
-    AppStore.removeListener (this.onAppStoreUpdate);
-  }
-
-  onAppStoreUpdate() {
-    this.setState({items: AppStore.getItems()});
-  }
 
   render() {
+    const { dispatch } = this.props;
     return (
       <div className="container">
-        <ItemInput />
-        <ListGroup>
-        {
-          // In lieu of a collection component for the time being
-          this.state.items.map((item, i) => (
-            <ItemRow item={item} idx={i} key={i}/>
-          ))
-        }
-        </ListGroup>
+        <ItemInput onClick={ text => {
+          return dispatch({ type: 'additem', text });
+        } }/>
       </div>
     );
   }
 }
 
-export default App;
+// function select(state) {
+//   return {
+//     items: state.items
+//   };
+// }
+
+export default connect()(App);
+
+/*
+        <ListGroup>
+        {
+          // In lieu of a collection component for the time being
+          this.props.items.map((item, i) => (
+            <ItemRow item={item} idx={i} key={i}/>
+          ))
+        }
+        </ListGroup>
+*/

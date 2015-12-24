@@ -3,8 +3,6 @@
 import React, { Component } from 'react';
 import { Row, Col, ListGroupItem } from 'react-bootstrap';
 
-import Dispatcher from '../dispatcher/Dispatcher';
-
 class ItemRow extends Component {
   deleteItem(idx) {
     Dispatcher.dispatch({ type: 'removeitem', idx});

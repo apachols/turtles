@@ -29,6 +29,7 @@
     "eslint": "^1.10.3",
     "eslint-loader": "^1.1.1",
     "eslint-plugin-react": "^3.12.0",
+    "redux-devtools": "^3.0.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
@@ -37,6 +38,8 @@
     "flux": "^2.1.1",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
-    "react-dom": "^0.14.3"
+    "react-dom": "^0.14.3",
+    "react-redux": "^4.0.4",
+    "redux": "^3.0.5"
   }
 }
