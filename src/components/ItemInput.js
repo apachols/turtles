@@ -10,17 +10,20 @@ class ItemInput extends Component {
   }
 
   handleValueChange(e) {
-    // Native react style of component information sharing
-    this.props.changeFunction(e.target.value);
-
-    // Flux style of component information sharing
     Dispatcher.dispatch({ type: 'UPDATE', text: e.target.value });
+  }
+
+  handleButtonClick() {
+    Dispatcher.dispatch({ type: 'additem', text: this.refs.input.value });
   }
 
   render() {
     return <div>
-      <input type="text" onChange={ this.handleValueChange.bind(this) }/>
-      <h1>{this.props.text}</h1>
+
+      <input type="text" onChange={ this.handleValueChange.bind(this) } ref="input"/>
+
+      <button onClick={ this.handleButtonClick.bind(this) }>Add Item</button>
+
     </div>;
   }
 }
