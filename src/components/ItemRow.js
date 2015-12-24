@@ -1,10 +1,11 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { ListGroupItem } from 'react-bootstrap';
 
 class ItemRow extends Component {
   render() {
-    return <div>{this.props.item}</div>;
+    return <ListGroupItem>{this.props.item}</ListGroupItem>;
   }
 }
 

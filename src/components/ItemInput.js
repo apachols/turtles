@@ -3,28 +3,27 @@
 import React, { Component } from 'react';
 import Dispatcher from '../dispatcher/Dispatcher';
 
+import { Input, Button } from 'react-bootstrap';
+
+
 class ItemInput extends Component {
 
   constructor(props) {
     super(props);
   }
 
-  handleValueChange(e) {
-    Dispatcher.dispatch({ type: 'UPDATE', text: e.target.value });
-  }
-
-  handleButtonClick() {
-    Dispatcher.dispatch({ type: 'additem', text: this.refs.input.value });
+  handleSubmit(e) {
+    e.preventDefault();
+    Dispatcher.dispatch({ type: 'additem', text: this.refs.input.getInputDOMNode().value });
   }
 
   render() {
-    return <div>
-
-      <input type="text" onChange={ this.handleValueChange.bind(this) } ref="input"/>
-
-      <button onClick={ this.handleButtonClick.bind(this) }>Add Item</button>
-
-    </div>;
+    return (
+      <form ref="form" onSubmit={this.handleSubmit.bind(this)}>
+        <Input label="Add Item" type="text" placeholder="Enter Item Text" ref="input"/>
+        <Button type="submit" bsStyle="primary">Add Item</Button>
+      </form>
+    );
   }
 }
 
