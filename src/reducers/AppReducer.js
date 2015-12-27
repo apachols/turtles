@@ -1,10 +1,10 @@
 
 import { combineReducers } from 'redux';
 
-function items(state, action) {
-  if (!state) {
-    return [];
-  }
+const initialState = ['Any old thing'];
+
+function items(state = initialState, action) {
+
   switch (action.type) {
   case 'additem':
     return [...state, action.text];

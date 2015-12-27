@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { ListGroup } from 'react-bootstrap';
 // my components
 import ItemRow from './ItemRow';
+// actions
+import {removeItem} from '../actions';
 
 class ItemList extends Component {
   componentDidMount() {
@@ -27,7 +29,7 @@ class ItemList extends Component {
         store.getState().items.map((item, i) => (
           <ItemRow item={item} idx={i} key={i} deleteItem={
             (idx) => {
-              dispatch({ type: 'removeitem', idx});
+              dispatch(removeItem(idx));
             }
           }/>
         ))
