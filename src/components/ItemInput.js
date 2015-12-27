@@ -12,6 +12,7 @@ export default class ItemInput extends Component {
     const text = node.value.trim();
     this.props.onClick(text);
     node.value = '';
+    node.focus();
   }
 
   render() {

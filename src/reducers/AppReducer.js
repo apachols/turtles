@@ -5,7 +5,6 @@ function items(state, action) {
   if (!state) {
     return [];
   }
-  console.log(state);
   switch (action.type) {
   case 'additem':
     return [...state, action.text];

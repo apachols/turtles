@@ -21,7 +21,6 @@ class ItemList extends Component {
   render() {
     const {dispatch} = this.props;
     const {store} = this.context;
-    console.log('store is', store, 'getState is', store.getState());
     return (
       <ListGroup>
       {

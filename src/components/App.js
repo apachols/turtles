@@ -9,7 +9,6 @@ import ItemList from './ItemList';
 class App extends Component {
 
   render() {
-    console.log(this.props);
     const { dispatch } = this.props;
     return (
       <div className="container">

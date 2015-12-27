@@ -9,11 +9,8 @@ class ItemRow extends Component {
   }
 
   // Edit item text
-
   // Drag and Drop to nest a thing
-
   // Return an item to the parent list
-
   // Click to show the list of this item instead of the current list
 
   render() {
