@@ -10,9 +10,9 @@ function items(state, action) {
   case 'additem':
     return [...state, action.text];
   case 'removeitem':
-    return { items: state.filter(
-      item => {return item.id !== action.idx;}
-    )};
+    return state.filter(
+      (item, id) => {return id !== action.idx;}
+    );
   default:
     return state;
   }

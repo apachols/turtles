@@ -5,7 +5,7 @@ import { Row, Col, ListGroupItem } from 'react-bootstrap';
 
 class ItemRow extends Component {
   deleteItem(idx) {
-    Dispatcher.dispatch({ type: 'removeitem', idx});
+    this.props.deleteItem(idx);
   }
 
   // Edit item text
